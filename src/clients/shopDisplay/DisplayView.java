@@ -16,7 +16,7 @@ import java.util.Observer;
  * The visual display seen by customers (Change to graphical version)
  * Change to a graphical display
  * @author  Mike Smith University of Brighton
- * 				sub author Anna Wilde
+ * 				amended by Anna Wilde
  * @version 2.0
  */
 public class DisplayView extends Canvas implements Observer
@@ -163,11 +163,11 @@ public class DisplayView extends Canvas implements Observer
       for ( Integer i : orders )
       {
     	if(count == 4){
-    		res += "\n" +  i + ", ";
+    		res += "\n" +  i + ", "; //first char of second line
     	}
     	else if(count == 12){
     		res += "\n" +  i + ", ";
-    		count = 5;
+    		count = 5; //first char of third line, reset count to 5 so that third line is the same as second
     	}
     	else{
     	  res +=  i + ", "; //comma enables separation - temp fix of display

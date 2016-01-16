@@ -140,40 +140,32 @@ public class CashierModel extends Observable
 
 		String theAction = "";
 		int    amount  = -1;                         //  & quantity
-		try
-		{
-			/*if( theBasket.size() < 1 || theBasket == null){
-  		  theAction = "Basket Empty";}*/
-			
-	
+		try{
+			//check if the basket is empty, as cannot remove items that aren't there
 			if (theBasket.size() == 0 || theBasket == null){
-				theAction = "Basket Empty";}
-				else if ( theState != State.checked )          // Not checked
-			{                                         //  with customer
+				theAction = "Basket Empty";} //if basket empty, display string and then exit method
+			else if ( theState != State.checked )    { //else check that the customer has approved this item to be removed
 				theAction = "Check if OK with customer first";
-			} else {
-				boolean stockBought =                   // Buy
-						theStock.buyStock(                    //  however
-								theProduct.getProductNum(),         //  may fail              
-								theProduct.getQuantity());         //
-				if ( stockBought )                      // Stock bought
-				{                                       // T
-					makeBasketIfReq();                    //  new Basket ?
-					if (theBasket.remove( theProduct )){          //  Remove from bought
+			} 
+			else { //if basket not empty and item checked, prepare to remove item
+				boolean stockBought = 
+						theStock.buyStock( 
+								theProduct.getProductNum(),     
+								theProduct.getQuantity());
+				if ( stockBought ){ //if true
+					makeBasketIfReq();
+					if (theBasket.remove( theProduct )){ //remove the product
 						theStock.addStock(
 								theProduct.getProductNum(),
 								theProduct.getQuantity() + 1); //add back into stock list if item removed
-
-						theAction = "Removed " +            //    details
-								theProduct.getDescription(); // only state the action if remove method returned true
-
+						theAction = "Removed " +
+								theProduct.getDescription(); //display that item has been removed
 					} 
-				} else {                                // F
-					theAction = "!!! Not in stock";       //  Now no stock
+			}else {
+					theAction = "!!! Not in stock";
 				}
 			}
-		} catch( StockException e )
-		{
+		} catch( StockException e ){
 			DEBUG.error( "%s\n%s", 
 					"CashierModel.doRemove", e.getMessage() );
 			theAction = e.getMessage();

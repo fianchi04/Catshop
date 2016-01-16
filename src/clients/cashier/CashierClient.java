@@ -10,7 +10,7 @@ import javax.swing.*;
 /**
  * The standalone Cashier Client.
  * @author  Mike Smith University of Brighton
- * 	amended by Anna Wilde
+
  * @version 2.1
  */
 

@@ -67,6 +67,11 @@ public class Basket extends ArrayList<Product> implements Serializable
 	  return super.remove( pr );	//call remove from arraylist
   }
   
+  public boolean checkList(Product pr)
+  {
+	  return false;
+  }
+  
   /**
    * Returns a description of the products in the basket suitable for printing.
    * @return a string description of the basket products

@@ -59,6 +59,17 @@ public class BetterBasket extends Basket implements Serializable
 	  return false;
   }
   
+  @Override
+  public boolean checkList (Product pr)
+  {
+	  for (int i =0; i<this.size(); i++){
+		  if(this.get(i).getProductNum().equals(pr.getProductNum())){
+			  return true;
+			  }
+	  } 
+	  return false;
+  }
+  
   
 }
 	  

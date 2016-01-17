@@ -59,8 +59,9 @@ public class BetterBasket extends Basket implements Serializable
 	  return false;
   }
   
+  //method to check if item is within the basket
   @Override
-  public boolean checkList (Product pr)
+  public boolean checkList(Product pr)
   {
 	  for (int i =0; i<this.size(); i++){
 		  if(this.get(i).getProductNum().equals(pr.getProductNum())){

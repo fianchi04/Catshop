@@ -67,6 +67,7 @@ public class Basket extends ArrayList<Product> implements Serializable
 	  return super.remove( pr );	//call remove from arraylist
   }
   
+  //stated method for checking an item is within the basket
   public boolean checkList(Product pr)
   {
 	  return false;

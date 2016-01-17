@@ -147,7 +147,7 @@ public class CashierModel extends Observable
 			else if ( theState != State.checked )    { //else check that the customer has approved this item to be removed
 				theAction = "Check if OK with customer first";
 			} 
-			else if (theBasket.checkList(theProduct)){ //if basket not empty and item checked, prepare to remove item
+			else if (theBasket.checkList(theProduct)){ //if basket not empty and item checked with customer, and if the item is in the basket, prepare to remove item
 				boolean stockBought = 
 						theStock.buyStock( 
 								theProduct.getProductNum(),     
